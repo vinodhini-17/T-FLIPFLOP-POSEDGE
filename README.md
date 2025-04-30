@@ -1,3 +1,5 @@
+# REG NO: 212223230245
+# DEVELOPED BY: VINODHINI K
 # T-FLIPFLOP-POSEDGE
 
 **AIM:**
@@ -28,15 +30,41 @@ From the above characteristic table, we can directly write the next state equati
 
 **Procedure**
 
-/* write all the steps invloved */
+1.Understand the T flip-flop truth table: T=0 → No change, T=1 → Toggle.
+
+2.Write Verilog code using always block triggered on clock edge.
+
+3.Create a testbench to apply clock and T input combinations.
+
+4.Simulate the design using a Verilog simulator (e.g., ModelSim or iverilog).
+
+5.Compare output Q with expected values from the truth table to validate.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+module exp9(t, clk, rst, q);
+  input t, clk, rst;
+  output reg q;
 
+  always @(posedge clk or posedge rst) 
+begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else if (t==0)
+      q <= q; 
+     else
+        q<=~q;
+  end
+endmodule
+```
 **RTL LOGIC FOR FLIPFLOPS**
+![Screenshot (57)](https://github.com/user-attachments/assets/374e4e8d-02aa-453e-b258-eecad926b7c7)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![Screenshot 2025-04-29 185244](https://github.com/user-attachments/assets/a6d8537f-4004-4c19-9a6d-3515d12fc3f0)
+
 
 **RESULTS**
+Thus the implemented T-flipflop are successfully verified.
